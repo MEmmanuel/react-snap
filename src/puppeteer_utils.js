@@ -156,7 +156,7 @@ const crawl = async opt => {
     const routePath = route.replace(/\//g, path.sep);
     const { ext } = path.parse(routePath);
     if (ext !== ".html" && ext !== "") {
-      const filePath = path.join(sourceDir, routePath);
+      const filePath = path.join(sourceDir, routePath.split(publicPath)[1]);
       skipExistingFile = fs.existsSync(filePath);
     }
 
